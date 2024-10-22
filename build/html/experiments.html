@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiments &mdash; CCI_OPENSAS  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=38369d6f" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="references.html" />
+    <link rel="prev" title="CBSD Creation" href="cbsd_creation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/xG-rev-4c-01.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#building-opensas-from-source">Building OpenSAS from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#building-opensas-dashboard-from-source">Building OpenSAS Dashboard from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#build-from-docker-image-of-open-sas-and-open-sas-dashboard">Build from Docker Image of Open SAS and Open SAS Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cbsd_creation.html">CBSD Creation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Experiments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-testbed">Setting Up the Testbed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-the-opensas-server">1. Start the OpenSAS Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launching-the-opensas-dashboard">2. Launching the OpenSAS Dashboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-cbsd-client">3. Running the CBSD Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">4. Running the CBSD Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-for-gaa-operation">5. Output for GAA Operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-for-pal-operation">6. Output for PAL Operation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CCI_OPENSAS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Experiments</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/experiments.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="experiments">
+<h1>Experiments<a class="headerlink" href="#experiments" title="Link to this heading"></a></h1>
+<p>The experiment is about demonstration of OpenSAS Server and CBSD Integration for GAA and PAL Operations using srsRAN and Open5GS. The setup will use one VM/PC running OpenSAS and dashboard and another VM/PC running CBSD client with srs gNB in ZMQ mode.</p>
+<section id="setting-up-the-testbed">
+<h2>Setting Up the Testbed<a class="headerlink" href="#setting-up-the-testbed" title="Link to this heading"></a></h2>
+<p>The testbed consists of:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#start-opensas-server"><span class="std std-ref">OpenSAS Core</span></a></p></li>
+<li><p><a class="reference internal" href="#launch-opensas-dashboard"><span class="std std-ref">OpenSAS Dashboard</span></a></p></li>
+<li><p><a class="reference internal" href="#running-cbsd-client"><span class="std std-ref">CBSD with srs gNB</span></a></p></li>
+</ul>
+</section>
+<section id="start-the-opensas-server">
+<span id="start-opensas-server"></span><h2>1. Start the OpenSAS Server<a class="headerlink" href="#start-the-opensas-server" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>From the VM hosting OpenSAS, start the OpenSAS Server:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>server.py
+</pre></div>
+</div>
+<p>First, ensure that the OpenSAS server is running.</p>
+</div></blockquote>
+</section>
+<section id="launching-the-opensas-dashboard">
+<span id="launch-opensas-dashboard"></span><h2>2. Launching the OpenSAS Dashboard<a class="headerlink" href="#launching-the-opensas-dashboard" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Once started, launch the OpenSAS dashboard:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>run<span class="w"> </span>dev
+</pre></div>
+</div>
+<p>Verify that it is both operational and accessible at <cite>http://localhost:9528/</cite>.</p>
+</div></blockquote>
+</section>
+<section id="running-the-cbsd-client">
+<span id="running-cbsd-client"></span><h2>3. Running the CBSD Client<a class="headerlink" href="#running-the-cbsd-client" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>In the VM hosting the CBSD client (with Open5GS core, srsRAN gNB, and RF frontend connected), run GAA CBSD first:</p>
+<ol class="loweralpha simple">
+<li><p><strong>Open a New TMUX Session</strong></p></li>
+</ol>
+<p>This allows you to manage multiple terminal sessions.</p>
+<ol class="loweralpha simple" start="2">
+<li><p><strong>Run the following command to start the GAA CBSD first</strong></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>run.py<span class="w"> </span>--lat<span class="w"> </span><span class="m">38</span>.88086127246137<span class="w"> </span>--lon<span class="w"> </span>-77.11558699967016<span class="w"> </span>--fcc<span class="w"> </span>GAA-Arlington<span class="w"> </span>--low<span class="w"> </span>3610e6<span class="w"> </span>--high<span class="w"> </span>3620e6<span class="w"> </span>-eirp<span class="w"> </span><span class="m">20</span><span class="w"> </span>-react<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>After running this, you should see a registration request from the CBSD client sent to OpenSAS, a spectrum inquiry, and then OpenSAS grants. The corresponding prints will show up in the OpenSAS dashboard and OpenSAS console. After a successful grant, another terminal will open up, starting the srsRAN 5G gNB.</p></li>
+<li><p>You will now be able to view this CBSD information in the CBSD list, Spectrum list, and map in the OpenSAS dashboard.</p></li>
+<li><p>The experiments can be found in <a class="reference internal" href="#gaa-operation"><span class="std std-ref">Output for GAA Operation</span></a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id1">
+<h2>4. Running the CBSD Client<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Similarly, terminate the <cite>run.py</cite> program in the CBSD console and execute the PAL user CBSD client using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>run.py<span class="w"> </span>--lat<span class="w"> </span><span class="m">38</span>.8818743855486<span class="w"> </span>--lon<span class="w"> </span>-77.11132435717902<span class="w"> </span>--fcc<span class="w"> </span>CCI-CBRS-PAL<span class="w"> </span>--low<span class="w"> </span>3610e6<span class="w"> </span>--high<span class="w"> </span>3620e6<span class="w"> </span>-eirp<span class="w"> </span><span class="m">20</span><span class="w"> </span>-react<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The experiments can be found in <a class="reference internal" href="#pal-operation"><span class="std std-ref">Output for PAL Operation</span></a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="output-for-gaa-operation">
+<span id="gaa-operation"></span><h2>5. Output for GAA Operation<a class="headerlink" href="#output-for-gaa-operation" title="Link to this heading"></a></h2>
+<ul>
+<li><p><strong>This image shows the OpenSAS log indicating the CBSD registration.</strong></p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/image15.png"><img alt="OpenSAS Log" src="_images/image15.png" style="width: 75.0%; height: 491.0px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 5:</strong> OpenSAS log indicating the CBSD registration.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<br><ul>
+<li><p><strong>This image shows the CBSD console logs indicating the CBSD registration and messages for Spectrum Inquiry Request, Grant Request, and other info.</strong></p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/image16.png"><img alt="CBSD Console Logs" src="_images/image16.png" style="width: 75.0%; height: 488.0px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 6:</strong> CBSD console logs indicating registration and spectrum inquiries.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<br><ul>
+<li><p><strong>This image shows the OpenSAS Dashboard where you can find the location of the CBSD using the map feature.</strong></p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/image17.png"><img alt="OpenSAS Dashboard Map" src="_images/image17.png" style="width: 75.0%; height: 504.0px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 7:</strong> OpenSAS Dashboard displaying CBSD location on the map.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<br><ul>
+<li><p><strong>This image shows the authorized band for the CBSD post-grant response.</strong></p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/image18.png"><img alt="Authorized Band" src="_images/image18.png" style="width: 75.0%; height: 505.0px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 8:</strong> Authorized band for the CBSD after grant response.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<br><ul>
+<li><p><strong>This image shows the registered CBSD and its corresponding ID.</strong></p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/image19.png"><img alt="Registered CBSD" src="_images/image19.png" style="width: 75.0%; height: 502.5px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 9:</strong> Registered CBSD and its corresponding ID.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<br></section>
+<section id="output-for-pal-operation">
+<span id="pal-operation"></span><h2>6. Output for PAL Operation<a class="headerlink" href="#output-for-pal-operation" title="Link to this heading"></a></h2>
+<ul>
+<li><p><strong>This indicates the spectrum allocation for the PAL user.</strong></p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/image20.png"><img alt="Spectrum Allocation" src="_images/image20.png" style="width: 75.0%; height: 502.5px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 10:</strong> Spectrum allocation for the PAL user.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<br><ul>
+<li><p><strong>This image shows the registered PAL CBSD user on the dashboard.</strong></p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/image21.png"><img alt="Registered PAL CBSD" src="_images/image21.png" style="width: 75.0%; height: 504.0px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 11:</strong> Registered PAL CBSD user on the dashboard.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+<br><ul>
+<li><p><strong>This image shows the registration of the CBSD PAL user on the OpenSAS core console.</strong></p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/image22.png"><img alt="OpenSAS Core Console" src="_images/image22.png" style="width: 75.0%; height: 489.0px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 12:</strong> Registration of CBSD PAL user on the OpenSAS core console.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cbsd_creation.html" class="btn btn-neutral float-left" title="CBSD Creation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="references.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Rajat Nagar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

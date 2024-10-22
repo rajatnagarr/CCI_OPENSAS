@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Requirements &mdash; CCI_OPENSAS  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=38369d6f" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CBSD Creation" href="cbsd_creation.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/xG-rev-4c-01.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tutorial-steps">Tutorial Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#building-opensas-from-source">Building OpenSAS from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#building-opensas-dashboard-from-source">Building OpenSAS Dashboard from Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#build-from-docker-image-of-open-sas-and-open-sas-dashboard">Build from Docker Image of Open SAS and Open SAS Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cbsd_creation.html">CBSD Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="experiments.html">Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CCI_OPENSAS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Requirements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h1>
+<p>To complete this tutorial, you will need:</p>
+<ol class="arabic simple">
+<li><p><strong>PC with Ubuntu 22.04.1 LTS</strong></p></li>
+<li><p><strong>srsRAN Project</strong>: Open-source 5G software radio suite.</p></li>
+<li><p><strong>OpenSAS Core</strong>: The core server component of OpenSAS.</p></li>
+<li><p><strong>OpenSAS Dashboard</strong>: The GUI dashboard for OpenSAS.</p></li>
+<li><p><strong>ZeroMQ</strong>: A high-performance asynchronous messaging library.</p></li>
+<li><p><strong>CBSD</strong>: Citizens Broadband Radio Service Device.</p></li>
+</ol>
+<section id="tutorial-steps">
+<h2>Tutorial Steps<a class="headerlink" href="#tutorial-steps" title="Link to this heading"></a></h2>
+<p>The tutorial goes through the following steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Cloning and Building OpenSAS Core from Source.</strong></p></li>
+<li><p><strong>Cloning and Building OpenSAS Dashboard from Source.</strong></p>
+<ul class="simple">
+<li><p>Alternatively, you can use the Docker image of both OpenSAS Core and OpenSAS Dashboard.</p></li>
+</ul>
+</li>
+<li><p><strong>CBSD Creation</strong>: Building CBSD Client with srs gNB (ZMQ Mode) and Dockerized Open5GS Core.</p></li>
+<li><p><strong>Setting Up the Testbed</strong> with the following components:</p>
+<ul class="simple">
+<li><p>OpenSAS Core</p></li>
+<li><p>OpenSAS Dashboard</p></li>
+<li><p>CBSD with srs gNB</p></li>
+</ul>
+</li>
+<li><p>Running  Experiments with GAA and PAL CBSDs.</p></li>
+</ol>
+</section>
+</section>
+<section id="building-opensas-from-source">
+<h1>Building OpenSAS from Source<a class="headerlink" href="#building-opensas-from-source" title="Link to this heading"></a></h1>
+<ol class="arabic">
+<li><p><strong>Clone the Repository</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CCI-NextG-Testbed/OpenSAS
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This is the forked version for the Virginia Tech SAS, called OpenSAS. The role of the SAS is to allow spectrum management of CBSDs, activation of dynamic protection zones, and environmental sensing for incumbent protection. OpenSAS strives to adhere to WInnForum and FCC regulations on SAS and CBRS operations.</p></li>
+<li><p>The Core/ folder contains everything required to launch the SAS Core Server. This is the true SAS. Regardess of your institution, this contains the code that is of primary interest for SAS researchers.</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image0.png"><img alt="SAS-CBSD State Diagram" src="_images/image0.png" style="width: 809.5px; height: 492.5px;" /></a>
+</figure>
+</li>
+<li><p><strong>Generate Certificates</strong></p>
+<p>Then, create the CA and server/client certificates using the create_ssl_certs.sh script.</p>
+<p>Navigate to the <cite>Certs</cite> directory and run the script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>OpenSAS/Core/Certs
+sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>create_ssl_certs.sh
+./create_ssl_certs.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Enter the IP of the machine running OpenSAS if making CBSD requests externally, if making the requests locally, the IP/hostname can be 127.0.0.1.</p></li>
+<li><p>Before running the script, make sure to delete the existing ca.cert and all other .key,.crt and .csr files. The only to files remaining should be create_ssl_certs.sh and create_client_certs.sh. The create_client_certs.sh can be used to create client certs for each new client. Once existing certs are deleted, run the script.</p></li>
+<li><p>This will create the CA, server, and client certificates in the Certs folder. Copy the <cite>ca.cert</cite>, <cite>client-&lt;IP/hostname&gt;-0.cert</cite>, and <cite>client-&lt;IP/hostname&gt;-0.key</cite> files to the client machine (CBSD) to make HTTPS requests.</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image1.png"><img alt="SAS-CBSD State Diagram" src="_images/image1.png" style="width: 808.0px; height: 141.0px;" /></a>
+</figure>
+</li>
+<li><p><strong>Update Server Configuration</strong></p>
+<p>Update the paths to the server certificate and key in <cite>Core/server.py</cite>.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image2.png"><img alt="SAS-CBSD State Diagram" src="_images/image2.png" style="width: 829.8px; height: 162.0px;" /></a>
+</figure>
+</li>
+<li><p><strong>Install Requirements</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>This will install all the required packages such as requests, python-engine.io. For the communication between the frontend and core to work the python-socketio and vue-socket.io versions should be compatible. The versions specified in the requirements.txt are tested to be compatible</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image3.png"><img alt="SAS-CBSD State Diagram" src="_images/image3.png" style="width: 806.0px; height: 70.0px;" /></a>
+</figure>
+</li>
+<li><p><strong>Run the OpenSAS Server</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>../
+python3<span class="w"> </span>server.py
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image4.png"><img alt="SAS-CBSD State Diagram" src="_images/image4.png" style="width: 808.0px; height: 495.0px;" /></a>
+</figure>
+<dl class="simple">
+<dt>The OpenSAS server will start listening for HTTPS requests from CBSDs.</dt><dd><p><strong>CBSDs can access the SAS via the following URL endpoints:</strong></p>
+</dd>
+</dl>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>https://&lt;IP/hostname&gt;:1443/sas-api/&lt;request&gt;
+</pre></div>
+</div>
+<p><strong>Examples:</strong></p>
+<ul class="simple">
+<li><p><cite>https://127.0.0.1:1443/sas-api/registration</cite></p></li>
+<li><p><cite>https://192.168.0.110:1443/sas-api/registration</cite></p></li>
+<li><p><cite>https://localhost:1443/sas-api/spectrumInquiry</cite></p></li>
+<li><p><cite>https://localhost:1443/sas-api/grant</cite></p></li>
+<li><p><cite>https://localhost:1443/sas-api/heartbeat</cite></p></li>
+<li><p><cite>https://localhost:1443/sas-api/relinquishment</cite></p></li>
+<li><p><cite>https://localhost:1443/sas-api/deregistration</cite></p></li>
+</ul>
+<p>These endpoints allow CBSDs to perform various actions such as registration, spectrum inquiry, grant requests, heartbeats, relinquishment, and deregistration with the OpenSAS server.</p>
+</li>
+</ol>
+</section>
+<section id="building-opensas-dashboard-from-source">
+<h1>Building OpenSAS Dashboard from Source<a class="headerlink" href="#building-opensas-dashboard-from-source" title="Link to this heading"></a></h1>
+<p>The dashboard serves as the webserver for the OpenSAS GUI.</p>
+<ol class="arabic">
+<li><p><strong>Clone the Repository</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CCI-NextG-Testbed/OpenSAS-dashboard/
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install npm</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>npm
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install Dependencies</strong></p>
+<p>From the cloned directory, enter install dependencies</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>OpenSAS-dashboard
+npm<span class="w"> </span>install<span class="w"> </span>--legacy-peer-deps
+</pre></div>
+</div>
+</li>
+<li><p><strong>Configure and Run the Dashboard</strong></p>
+<ul class="simple">
+<li><p>Set the IP and port to the OpenSAS SocketIO in the configuration files.</p></li>
+<li><p>If the OpenSAS core is running on a different VM or machine, use its IP, else it will be localhost.</p></li>
+<li><p>The port on OpenSAS is set to 8000.</p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">VueSocketIO</span><span class="p">({</span>
+<span class="w">   </span><span class="nx">debug</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="nx">connection</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://10.147.20.114:8000&#39;</span><span class="p">,</span>
+<span class="w">   </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="nx">transports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;websocket&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;polling&#39;</span><span class="p">,</span><span class="w">  </span><span class="s1">&#39;flashsocket&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">//Optional options</span>
+<span class="p">}))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Then, start the dashboard:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>run<span class="w"> </span>dev
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image7.png"><img alt="SAS-CBSD State Diagram" src="_images/image7.png" style="width: 758.4000000000001px; height: 165.60000000000002px;" /></a>
+</figure>
+<ul class="simple">
+<li><p>Access the dashboard at <cite>http://localhost:9528/</cite>.</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image8.png"><img alt="SAS-CBSD State Diagram" src="_images/image8.png" style="width: 768.0px; height: 406.40000000000003px;" /></a>
+</figure>
+<ul class="simple">
+<li><p>You can view the list of CBSDs here</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image9.png"><img alt="SAS-CBSD State Diagram" src="_images/image9.png" style="width: 768.0px; height: 404.0px;" /></a>
+</figure>
+</li>
+</ol>
+</section>
+<section id="build-from-docker-image-of-open-sas-and-open-sas-dashboard">
+<h1>Build from Docker Image of Open SAS and Open SAS Dashboard<a class="headerlink" href="#build-from-docker-image-of-open-sas-and-open-sas-dashboard" title="Link to this heading"></a></h1>
+<p>Alternatively, you can build and run OpenSAS using Docker, the dockerfile is the easiest way to get started:</p>
+<ol class="arabic">
+<li><p><strong>Install Docker Engine</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker.io
+</pre></div>
+</div>
+</li>
+<li><p><strong>Clone the Docker Repository</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CCI-NextG-Testbed/OpenSASDocker.git
+<span class="nb">cd</span><span class="w"> </span>OpenSASDocker
+</pre></div>
+</div>
+</li>
+<li><p><strong>Build the Docker Image</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>.<span class="w"> </span>--tag<span class="o">=</span>opensas-server-dash<span class="w"> </span>--no-cache
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run the OpenSAS Container</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="o">=</span>host<span class="w"> </span>--name<span class="o">=</span>opensas-container<span class="w"> </span>-it<span class="w"> </span>--privileged<span class="w"> </span>opensas-server-dash
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The OpenSAS core and dashboard services will start automatically.</p></li>
+<li><p>This starts the two services:</p></li>
+<li><p><strong>The OpenSAS core</strong> which will listen to HTTP requests from CBSDs</p></li>
+<li><p><strong>The OpenSAS dashboard webserver</strong></p></li>
+</ul>
+<p>The web portal can be accessed via <cite>http://localhost:9528/</cite></p>
+<p>The CBSDs can access the SAS via the following URL endpoints:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://localhost:1443/sas-api/registration
+http://localhost:1443/sas-api/spectrumInquiry
+http://localhost:1443/sas-api/grant
+http://localhost:1443/sas-api/heartbeat
+http://localhost:1443/sas-api/relinquishment
+http://localhost:1443/sas-api/deregistration
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cbsd_creation.html" class="btn btn-neutral float-right" title="CBSD Creation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Rajat Nagar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
