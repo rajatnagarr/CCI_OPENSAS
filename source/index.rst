@@ -1,13 +1,12 @@
-Welcome to OpenSAS Documentation
-================================
+Basic Experiments with OpenSAS
+==============================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contents
 
+   introduction
    installation
-   running_experiments
-   opensas_overview
-   cbsd_client
+   cbsd_creation
+   experiments
    references
-
