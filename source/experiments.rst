@@ -217,10 +217,10 @@ Experimental Setup
 
 .. figure:: _static/image24.png
    :align: center
-   :alt: OpenSAS Architecture
+   :alt: Experimental Setup
    :scale: 50%
 
-   **Figure 2:** Experimental Setup.
+   **Figure :** Experimental Setup.
 
 The experiment demonstrates the integration of the OpenSAS Server and CBSD for GAA and PAL operations using srsRAN and Open5GS. The setup uses one VM/PC running OpenSAS and its dashboard, and another VM/PC running the CBSD client with an srs gNB in ZMQ mode.
 
