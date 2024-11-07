@@ -402,25 +402,6 @@ To complete this tutorial, you will need:
 Installation and Configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Tutorial Steps
-""""""""""""""
-
-The tutorial goes through the following steps:
-
-1. **Cloning and Building OpenSAS Core from Source.**
-2. **Cloning and Building OpenSAS Dashboard from Source.**
-
-   - Alternatively, you can use the Docker image of both OpenSAS Core and OpenSAS Dashboard.
-
-3. **CBSD Creation**: Building CBSD Client with srs gNB (ZMQ Mode) and Dockerized Open5GS Core.
-4. **Setting Up the Testbed** with the following components:
-
-   - OpenSAS Core
-   - OpenSAS Dashboard
-   - CBSD with srs gNB
-
-5. **Running Experiments** with GAA and PAL CBSDs.
-
 Building OpenSAS from Source
 """"""""""""""""""""""""""""
 
