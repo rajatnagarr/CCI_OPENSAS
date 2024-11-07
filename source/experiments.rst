@@ -218,6 +218,7 @@ Experimental Setup
 .. figure:: _static/image24.png
    :align: center
    :alt: OpenSAS Architecture
+   :scale: 50%
 
    **Figure 2:** Experimental Setup.
 
@@ -302,7 +303,7 @@ The testbed consists of:
 
    - **OpenSAS log indicating the CBSD registration:**
 
-     .. figure:: ../../_static/image15.png
+     .. figure:: _static/image15.png
         :align: center
         :alt: OpenSAS Log
         :scale: 50%
@@ -311,7 +312,7 @@ The testbed consists of:
 
    - **CBSD console logs showing registration and spectrum inquiries:**
 
-     .. figure:: ../../_static/image16.png
+     .. figure:: _static/image16.png
         :align: center
         :alt: CBSD Console Logs
         :scale: 50%
@@ -320,7 +321,7 @@ The testbed consists of:
 
    - **OpenSAS Dashboard displaying CBSD location on the map:**
 
-     .. figure:: ../../_static/image17.png
+     .. figure:: _static/image17.png
         :align: center
         :alt: OpenSAS Dashboard Map
         :scale: 50%
@@ -329,7 +330,7 @@ The testbed consists of:
 
    - **Authorized band for the CBSD after grant response:**
 
-     .. figure:: ../../_static/image18.png
+     .. figure:: _static/image18.png
         :align: center
         :alt: Authorized Band
         :scale: 50%
@@ -338,7 +339,7 @@ The testbed consists of:
 
    - **Registered CBSD and its corresponding ID:**
 
-     .. figure:: ../../_static/image19.png
+     .. figure:: _static/image19.png
         :align: center
         :alt: Registered CBSD
         :scale: 50%
@@ -352,7 +353,7 @@ The testbed consists of:
 
    - **OpenSAS Dashboard displaying CBSD location on the map:**
 
-     .. figure:: ../../_static/image23.png
+     .. figure:: _static/image23.png
         :align: center
         :alt: OpenSAS Dashboard Map
         :scale: 50%
@@ -361,7 +362,7 @@ The testbed consists of:
 
    - **Spectrum allocation for the PAL user:**
 
-     .. figure:: ../../_static/image20.png
+     .. figure:: _static/image20.png
         :align: center
         :alt: Spectrum Allocation
         :scale: 50%
@@ -370,7 +371,7 @@ The testbed consists of:
 
    - **Registered PAL CBSD user on the dashboard:**
 
-     .. figure:: ../../_static/image21.png
+     .. figure:: _static/image21.png
         :align: center
         :alt: Registered PAL CBSD
         :scale: 50%
@@ -379,7 +380,7 @@ The testbed consists of:
 
    - **Registration of CBSD PAL user on the OpenSAS core console:**
 
-     .. figure:: ../../_static/image22.png
+     .. figure:: _static/image22.png
         :align: center
         :alt: OpenSAS Core Console
         :scale: 50%
@@ -433,7 +434,7 @@ Clone the Repository
 - This is the forked version for the Virginia Tech SAS, called OpenSAS. The role of the SAS is to allow spectrum management of CBSDs, activation of dynamic protection zones, and environmental sensing for incumbent protection. OpenSAS strives to adhere to WInnForum and FCC regulations on SAS and CBRS operations.
 - The `Core/` folder contains everything required to launch the SAS Core Server. This is the true SAS. Regardless of your institution, this contains the code that is of primary interest for SAS researchers.
 
-.. figure:: ../../_static/image0.png
+.. figure:: _static/image0.png
    :align: center
    :alt: SAS-CBSD State Diagram
    :scale: 50%
@@ -457,7 +458,7 @@ Navigate to the `Certs` directory and run the script:
 - Before running the script, make sure to delete the existing `ca.cert` and all other `.key`, `.crt`, and `.csr` files. The only files remaining should be `create_ssl_certs.sh` and `create_client_certs.sh`. The `create_client_certs.sh` can be used to create client certs for each new client. Once existing certs are deleted, run the script.
 - This will create the CA, server, and client certificates in the `Certs` folder. Copy the `ca.cert`, `client-<IP/hostname>-0.cert`, and `client-<IP/hostname>-0.key` files to the client machine (CBSD) to make HTTPS requests.
 
-.. figure:: ../../_static/image1.png
+.. figure:: _static/image1.png
    :align: center
    :alt: Certificate Generation
    :scale: 50%
@@ -469,7 +470,7 @@ Update Server Configuration
 
 Update the paths to the server certificate and key in `Core/server.py`.
 
-.. figure:: ../../_static/image2.png
+.. figure:: _static/image2.png
    :align: center
    :alt: Server Configuration
    :scale: 60%
@@ -487,7 +488,7 @@ Install the necessary Python packages:
 
 - This will install all the required packages such as `requests`, `python-engine.io`. For the communication between the frontend and core to work, the `python-socketio` and `vue-socket.io` versions should be compatible. The versions specified in the `requirements.txt` are tested to be compatible.
 
-.. figure:: ../../_static/image3.png
+.. figure:: _static/image3.png
    :align: center
    :alt: Installing Requirements
    :scale: 50%
@@ -504,7 +505,7 @@ Start the OpenSAS server:
    cd ../
    python3 server.py
 
-.. figure:: ../../_static/image4.png
+.. figure:: _static/image4.png
    :align: center
    :alt: OpenSAS Server Running
    :scale: 50%
@@ -583,7 +584,7 @@ Then, start the dashboard:
 
    npm run dev
 
-.. figure:: ../../_static/image7.png
+.. figure:: _static/image7.png
    :align: center
    :alt: OpenSAS Dashboard Running
    :scale: 80%
@@ -592,7 +593,7 @@ Then, start the dashboard:
 
 - Access the dashboard at `http://localhost:9528/`.
 
-.. figure:: ../../_static/image8.png
+.. figure:: _static/image8.png
    :align: center
    :alt: OpenSAS Dashboard Login
    :scale: 40%
@@ -601,7 +602,7 @@ Then, start the dashboard:
 
 - You can view the list of CBSDs here.
 
-.. figure:: ../../_static/image9.png
+.. figure:: _static/image9.png
    :align: center
    :alt: CBSD List
    :scale: 40%
