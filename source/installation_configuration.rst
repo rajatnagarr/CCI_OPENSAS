@@ -6,16 +6,20 @@ Installation and Configuration
 
 Building OpenSAS from Source
 """"""""""""""""""""""""""""
+- This is the forked version for the Virginia Tech SAS, called OpenSAS. The role of the SAS is to allow spectrum management of CBSDs, activation of dynamic protection zones, and environmental sensing for incumbent protection. OpenSAS strives to adhere to WInnForum and FCC regulations on SAS and CBRS operations.
+- The `Core/` folder contains everything required to launch the SAS Core Server. This is the true SAS. Regardless of your institution, this contains the code that is of primary interest for SAS researchers.
 
 Clone the Repository
 ~~~~~~~~~~~~~~~~~~~~
+
+In this method, the repository is cloned locally. This is the way to go if HTTPS is required.
+
+First clone the repository using git
 
 .. code-block:: bash
 
    git clone https://github.com/CCI-NextG-Testbed/OpenSAS
 
-- This is the forked version for the Virginia Tech SAS, called OpenSAS. The role of the SAS is to allow spectrum management of CBSDs, activation of dynamic protection zones, and environmental sensing for incumbent protection. OpenSAS strives to adhere to WInnForum and FCC regulations on SAS and CBRS operations.
-- The `Core/` folder contains everything required to launch the SAS Core Server. This is the true SAS. Regardless of your institution, this contains the code that is of primary interest for SAS researchers.
 
 .. figure:: _static/image0.png
    :align: center
@@ -27,19 +31,21 @@ Clone the Repository
 Generate Certificates
 ~~~~~~~~~~~~~~~~~~~~~
 
-Then, create the CA and server/client certificates using the `create_ssl_certs.sh` script.
-
-Navigate to the `Certs` directory and run the script:
+- Next, create the CA and server/client certificates using the create_ssl_certs.sh script. Go into the /Core/Certs folder and run the script. 
+- Enter the IP of the machine running OpenSAS if making CBSD requests externally. If making the requests locally, the IP/hostname can be `127.0.0.1`.
 
 .. code-block:: bash
 
    cd OpenSAS/Core/Certs
    sudo chmod +x create_ssl_certs.sh
+
+- Before running the script, make sure to delete the existing `ca.cert` and all other `.key`, `.crt`, and `.csr` files. The only files remaining should be `create_ssl_certs.sh` and `create_client_certs.sh`. The `create_client_certs.sh` can be used to create client certs for each new client. Once existing certs are deleted, run the script.
+
+.. code-block:: bash
+
    ./create_ssl_certs.sh
 
-- Enter the IP of the machine running OpenSAS if making CBSD requests externally. If making the requests locally, the IP/hostname can be `127.0.0.1`.
-- Before running the script, make sure to delete the existing `ca.cert` and all other `.key`, `.crt`, and `.csr` files. The only files remaining should be `create_ssl_certs.sh` and `create_client_certs.sh`. The `create_client_certs.sh` can be used to create client certs for each new client. Once existing certs are deleted, run the script.
-- This will create the CA, server, and client certificates in the `Certs` folder. Copy the `ca.cert`, `client-<IP/hostname>-0.cert`, and `client-<IP/hostname>-0.key` files to the client machine (CBSD) to make HTTPS requests.
+- This will create the CA, server, and client certificates in the `Certs` folder. Copy the `ca.cert`, `client-<IP/hostname>-0.cert`, and `client-<IP/hostname>-0.key` files to the client machine (CBSD) to make HTTPS requests. 
 
 .. figure:: _static/image1.png
    :align: center
@@ -63,7 +69,7 @@ Update the paths to the server certificate and key in `Core/server.py`.
 Install Requirements
 ~~~~~~~~~~~~~~~~~~~~
 
-Install the necessary Python packages:
+Finally, before starting the server, install all the requirements (packages) by running pip3 install as follows:
 
 .. code-block:: bash
 
