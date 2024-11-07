@@ -1,12 +1,10 @@
-Basic Experiments with OpenSAS
-==============================
+OpenSAS and Experiments in CBRS Ecosystem
+=========================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents
 
    introduction
-   installation
-   cbsd_creation
    experiments
    references

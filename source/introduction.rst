@@ -41,8 +41,3 @@ CBSD (Citizens Broadband Radio Service Device)
 
 A CBSD is a CBRS device, typically a 5G base station with a CBSD client running on it. For example, a CBSD client with srsRAN gNodeB (gNB).
 
-Objective
----------
-
-This setup outlines the installation and configuration of an OpenSAS server and dashboard on a VM for managing CBSD (Citizen Broadband Radio Service Device) operations. It includes modifying scripts for specific configurations, running CBSD machines with srsRAN and Open5GS core for testing GAA and PAL spectrum usage in the CBRS band.
-
