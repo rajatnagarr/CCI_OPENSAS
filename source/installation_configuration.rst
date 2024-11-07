@@ -4,10 +4,11 @@
 Installation and Configuration
 ==============================
 
+This section presents installation and configuration steps for OpenSAS server, OpenSAS dashboard, and CBSDs in linux environment. OpenSAS and its dashboard can be installed from source or using Docker. The following sections provide detailed instructions for each method.
+
 Building OpenSAS from Source
 """"""""""""""""""""""""""""
-- This is the forked version for the Virginia Tech SAS, called OpenSAS. The role of the SAS is to allow spectrum management of CBSDs, activation of dynamic protection zones, and environmental sensing for incumbent protection. OpenSAS strives to adhere to WInnForum and FCC regulations on SAS and CBRS operations.
-- The `Core/` folder contains everything required to launch the SAS Core Server. This is the true SAS. Regardless of your institution, this contains the code that is of primary interest for SAS researchers.
+The `Core/` folder contains everything required to launch the SAS Core Server. Regardless of your institution, this contains the code that is of primary interest for SAS researchers.
 
 Clone the Repository
 ~~~~~~~~~~~~~~~~~~~~
@@ -21,18 +22,10 @@ First clone the repository using git
    git clone https://github.com/CCI-NextG-Testbed/OpenSAS
 
 
-.. figure:: _static/image0.png
-   :align: center
-   :alt: SAS-CBSD State Diagram
-   :scale: 50%
-
-   **Figure:** SAS-CBSD State Diagram.
-
 Generate Certificates
 ~~~~~~~~~~~~~~~~~~~~~
 
 - Next, create the CA and server/client certificates using the create_ssl_certs.sh script. Go into the /Core/Certs folder and run the script. 
-- Enter the IP of the machine running OpenSAS if making CBSD requests externally. If making the requests locally, the IP/hostname can be `127.0.0.1`.
 
 .. code-block:: bash
 
@@ -45,7 +38,10 @@ Generate Certificates
 
    ./create_ssl_certs.sh
 
-- This will create the CA, server, and client certificates in the `Certs` folder. Copy the `ca.cert`, `client-<IP/hostname>-0.cert`, and `client-<IP/hostname>-0.key` files to the client machine (CBSD) to make HTTPS requests. 
+- Enter the IP of the machine running OpenSAS and CBSD client. If making the requests locally, the IP/hostname can be `127.0.0.1`.
+
+
+- This will create certificate for the server and one CBSD client in the `Certs` folder. Copy the `ca.cert`, `client-<IP/hostname>-0.cert`, and `client-<IP/hostname>-0.key` files to the client machine (CBSD) to make HTTPS requests. To generate more CBSD client certificates, run the `create_client_certs.sh` script.
 
 .. figure:: _static/image1.png
    :align: center
@@ -57,14 +53,17 @@ Generate Certificates
 Update Server Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Update the paths to the server certificate and key in `Core/server.py`.
+Update the paths to the server certificate and key in `Core/server.py`. The following code snipped show which paths to update.
 
-.. figure:: _static/image2.png
-   :align: center
-   :alt: Server Configuration
-   :scale: 60%
+.. code-block:: bash
 
-   **Figure:** Updating Server Configuration in `server.py`.
+   httpd = HTTPServer(('0.0.0.0', 1443), SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket (httpd.socket, 
+           keyfile="Certs/server_10.147.20.60.key",                       //Update this to reflect the new server key
+           certfile='Certs/server_10.147.20.60.crt', server_side=True)    //Update this to reflect the new server cert
+    print("Listening on port 1443")
+    httpd.serve_forever()    
+   
 
 Install Requirements
 ~~~~~~~~~~~~~~~~~~~~
@@ -82,7 +81,7 @@ Finally, before starting the server, install all the requirements (packages) by 
    :alt: Installing Requirements
    :scale: 50%
 
-   **Figure:** Installing Requirements.
+   **Figure:** Installation Requirements.
 
 Run the OpenSAS Server
 ~~~~~~~~~~~~~~~~~~~~~~
