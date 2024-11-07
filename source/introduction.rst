@@ -7,10 +7,12 @@ Citizens Broadband Radio Service (CBRS)
 The Citizens Broadband Radio Service (CBRS) spectrum (3550-3700 MHz) in the U.S. enables shared wireless communication through a three-tiered access system:
 
 - **Incumbent Access (Tier 1)**: Reserved for military and government users with the highest priority.
-- **Priority Access License (PAL, Tier 2)**: Licensed users with priority over unlicensed users, obtained via FCC auction.
+- **Priority Access License (PAL, Tier 2)**: Licensed users with priority over unlicensed users, obtained via FCC auction. The Virginia Tech Foundation has acquired Priority Access Licenses (PALs) for the newly available Citizens Broadband Radio Service (CBRS). Virginia Tech’s priority access licenses include four 10-MHz blocks in Montgomery County and another four 10-MHz blocks in Craig County. The licenses are held by Virginia Tech Technology Assets (VTTA), a subsidiary of the Virginia Tech Foundation, and will be administered by the Division of Information Technology. `Virginia Tech Spectrum Information <https://it.vt.edu/partnerships/university-partnerships/spectrum.html>`_
 - **General Authorized Access (GAA, Tier 3)**: Unlicensed users with access to available spectrum but must defer to higher tiers.
 
-It is managed by a Spectrum Access System (SAS) to avoid interference. CBRS supports private LTE/5G networks, industrial IoT, and rural broadband, offering flexible, cost-effective connectivity.
+
+
+CBRS spectrum is managed by a Spectrum Access System (SAS) to avoid interference and priority protection. CBRS supports private LTE/5G networks, industrial IoT, and rural broadband, offering flexible, cost-effective cellular connectivity. These LTE/5G base stations are called CBRS Devices (CBSDs). SAS also has environmental sensing Capabilities (ESC) to detect incumbent users and protect them from interference. 
 
 .. figure:: _static/cbrs_three_tier_system.png
    :align: center
@@ -21,7 +23,7 @@ It is managed by a Spectrum Access System (SAS) to avoid interference. CBRS supp
 Open Source Spectrum Access System (OpenSAS)
 --------------------------------------------
 
-The role of the SAS is to allow spectrum management of CBSDs, activation of dynamic protection zones, and environmental sensing for incumbent protection. OpenSAS strives to adhere to WInnForum and FCC regulations on SAS and CBRS operations.
+To enable research and experimentation in CBRS ecosystem, Virginia Tech/CCI has developed an open-source SAS called OpenSAS [3][4]. OpenSAS strives to adhere to WInnForum and FCC regulations on SAS and CBSD operations and has successfully tested with Software Defined Radio (SDR) based CBSDs and ESCs. OpenSAS also has Dynamic Protection Area (DPA) configuration and ML-based incumbent detection capability integrated and tested [3].OpenSAS also has a web-based user interface for easy visualization and monitoring of the system.
 
 OpenSAS Architecture
 --------------------
