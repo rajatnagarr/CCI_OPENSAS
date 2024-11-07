@@ -179,7 +179,7 @@ Then, start the dashboard:
 
    **Figure:** OpenSAS Dashboard Running.
 
-- Access the dashboard at `http://localhost:9528/`.
+- Access the dashboard at `http://localhost:9528/` or `http://<host-ip>:9528`.
 
 .. figure:: _static/image8.png
    :align: center
