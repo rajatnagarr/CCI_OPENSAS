@@ -403,7 +403,7 @@ Setting Up the Experiment
    
    c. **Output for PAL Operation**
 
-      Since the PAL user has priority over the GAA user, the PAL user will be granted access to the spectrum first. The GAA user will be granted access only after the PAL user relinquishes the spectrum. In the meantime, the GAA user is in registered state and keep sending spectrum Inquiry to the SAS.
+      Since the PAL user has priority over the GAA user, the PAL user will be granted access to the spectrum first. The GAA user will have to stop its operation and will be granted access only after the PAL user relinquishes the spectrum. In the meantime, the GAA user is in registered state and keep sending spectrum Inquiry to the SAS.
 
       - **OpenSAS Dashboard displaying CBSD location on the map:**
 
