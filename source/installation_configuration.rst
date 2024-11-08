@@ -255,9 +255,27 @@ CBSD Client for OpenSAS
 """""""""""""""""""""""
 
 Clone the Repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
    git clone https://github.com/CCI-NextG-Testbed/CBSD
-   cd 
+   cd CBSD
+
+
+First
+~~~~~~~~~~~~~~~~~~~~
+
+Make sure that the Certs are generated in OpenSAS with this machine's IP (accesscible from other VMs) and placed in the Certs folder here. Also, the proper gnb yml file is copied from your srsRAN/configs folder. modify the run.py script to include any specific srsRAN config file. Make appropriate changes in the run.py and CBSD.py.
+
+Second
+~~~~~~~~~~~~~~~~~~~~
+
+Modify run.py to add you gnb yml file name
+
+
+Third
+~~~~~~~~~~~~~~~~~~~~
+
+Modify CBSD.py to inculde OpenSAS IP and proper CBSD client certificate path:
+
