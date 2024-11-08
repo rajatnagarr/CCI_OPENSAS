@@ -201,19 +201,21 @@
 
 ..      **Figure 13:** Registration of CBSD PAL user on the OpenSAS core console.
 
-Experiments
-===========
+Tutorials
+=========
 
-Priority Protection of PAL Users through OpenSAS
+Sample Experiment: Priority Protection of PAL Users through OpenSAS
 -----------------------------------------------
 
 Objective
 ^^^^^^^^^
 
-This setup outlines the installation and configuration of an OpenSAS server and dashboard on a VM for managing CBSD (Citizen Broadband Radio Service Device) operations. It includes modifying scripts for specific configurations, running CBSD machines with srsRAN and Open5GS core for testing GAA and PAL spectrum usage in the CBRS band.
+This tutorial outlines the steps to demonstrate the integration of the OpenSAS Server and CBSD for GAA and PAL operations using srsRAN and Open5GS. We demonstrate priority protection for higher-tier user (PAL) in presence of lower-tier users (GAA) in the CBRS ecosystem through OpenSAS.  
 
 Experimental Setup
 ^^^^^^^^^^^^^^^^^^
+
+The setup uses one VM/PC running OpenSAS and its dashboard, and two other VMs/PCs running the CBSD client with an srsRAN gNB in ZMQ mode. The GAA CBSD is run first, followed by the PAL CBSD requesting same frequency in a overlapping coverage area. The OpenSAS server will grant the PAL CBSD access to the spectrum, ensuring priority protection for PAL users and GAA users wait for the spectrum to be available. Once spectrum is vacated by the PAL user, the GAA user is automatically granted access to the spectrum.
 
 .. figure:: _static/image24.png
    :align: center
@@ -222,18 +224,23 @@ Experimental Setup
 
    **Figure :** Experimental Setup.
 
-The experiment demonstrates the integration of the OpenSAS Server and CBSD for GAA and PAL operations using srsRAN and Open5GS. The setup uses one VM/PC running OpenSAS and its dashboard, and another VM/PC running the CBSD client with an srs gNB in ZMQ mode.
 
-Setting Up the Testbed
-~~~~~~~~~~~~~~~~~~~~~~
+Setting Up the Experiment
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The testbed consists of:
 
-- :ref:`OpenSAS Core <start-opensas-server>`
-- :ref:`OpenSAS Dashboard <launch-opensas-dashboard>`
-- :ref:`CBSD with srs gNB <running-cbsd-client>`
+.. - :ref:`OpenSAS Core <start-opensas-server>`
+.. - :ref:`OpenSAS Dashboard <launch-opensas-dashboard>`
+.. - :ref:`CBSD with srs gNB <running-cbsd-client>`
 
-.. _start-opensas-server:
+
+**Prerequisites**
+
+   - OpenSAS server and dashboard are installed and configured properly. The installation and configuration steps can be found at `server installation and configuration <http://127.0.0.1:8000/installation_configuration.html#building-opensas-from-source>`_ and `dashboard installation and configuration <http://127.0.0.1:8000/installation_configuration.html#building-opensas-dashboard-from-source>`_.
+   - Install and configure PAL and GAA CBSDs with srsRAN gNB and Open5GS core. The installation and configuration steps can be found at `CBSD client for OpenSAS <http://127.0.0.1:8000/installation_configuration.html#cbsd-client-for-opensas>`_.
+
+**Running the Experiment**
+
 
 1. **Start the OpenSAS Server**
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -242,22 +249,46 @@ The testbed consists of:
 
    .. code-block:: bash
 
+      cd OpenSAS/Core
       python server.py
 
    Ensure that the OpenSAS server is running.
+
+   .. figure:: _static/image4.png
+      :align: center
+      :alt: OpenSAS Server Running
+      :scale: 50%
+
+      **Figure:** OpenSAS Server Running.
 
 .. _launch-opensas-dashboard:
 
 2. **Launching the OpenSAS Dashboard**
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Once started, launch the OpenSAS dashboard:
+   Once OpenSAS server is up and running, launch the OpenSAS dashboard:
 
    .. code-block:: bash
 
+      cd OpenSAS-dashboard/
       npm run dev
 
-   Verify that it is operational and accessible at `http://localhost:9528/`.
+   Verify that it is operational and accessible at `http://localhost:9528/` or `http://<dashboard-machine-ip>:9528/`.
+
+   .. figure:: _static/image7.png
+      :align: center
+      :alt: OpenSAS Dashboard Running
+      :scale: 80%
+
+      **Figure:** OpenSAS Dashboard Running.
+      
+
+   .. figure:: _static/image8.png
+      :align: center
+      :alt: OpenSAS Dashboard Login
+      :scale: 40%
+
+      **Figure:** OpenSAS Dashboard Login Page.
 
 .. _running-cbsd-client:
 
@@ -486,12 +517,7 @@ Start the OpenSAS server:
    cd ../
    python3 server.py
 
-.. figure:: _static/image4.png
-   :align: center
-   :alt: OpenSAS Server Running
-   :scale: 50%
 
-   **Figure:** OpenSAS Server Running.
 
 The OpenSAS server will start listening for HTTPS requests from CBSDs.
 
@@ -565,21 +591,7 @@ Then, start the dashboard:
 
    npm run dev
 
-.. figure:: _static/image7.png
-   :align: center
-   :alt: OpenSAS Dashboard Running
-   :scale: 80%
 
-   **Figure:** OpenSAS Dashboard Running.
-
-- Access the dashboard at `http://localhost:9528/`.
-
-.. figure:: _static/image8.png
-   :align: center
-   :alt: OpenSAS Dashboard Login
-   :scale: 40%
-
-   **Figure:** OpenSAS Dashboard Login Page.
 
 - You can view the list of CBSDs here.
 
