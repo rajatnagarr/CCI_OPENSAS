@@ -345,14 +345,14 @@ Setting Up the Experiment
 
          **Figure 6:** CBSD console logs indicating registration and spectrum inquiries.
 
-      - **OpenSAS Dashboard displaying CBSD location on the map:**
+      - **OpenSAS Dashboard displaying GAA CBSD location on the map:**
 
       .. figure:: _static/image17.png
          :align: center
          :alt: OpenSAS Dashboard Map
          :scale: 50%
 
-         **Figure 7:** OpenSAS Dashboard displaying CBSD location on the map.
+         **Figure 7:** OpenSAS Dashboard displaying GAA CBSD location on the map.
 
       - **Authorized band for the CBSD after grant response:**
 
@@ -414,7 +414,7 @@ Setting Up the Experiment
          :alt: OpenSAS Dashboard Map
          :scale: 50%
 
-         **Figure 10:** OpenSAS Dashboard displaying CBSD location on the map.
+         **Figure 10:** OpenSAS Dashboard displaying PAL and GAA CBSD location on the map.
 
       - **Registered PAL CBSD user on the dashboard:**
 
@@ -425,13 +425,13 @@ Setting Up the Experiment
 
          **Figure 11:** Registered PAL CBSD user on the dashboard.
 
-      .. figure:: _static/image17.png
+   Once PAL operation is terminated, the GAA user will be granted access to the spectrum and the corresponding coverage area will be shown on the map.
+
+   .. figure:: _static/image17.png
          :align: center
          :alt: OpenSAS Dashboard Map
          :scale: 50%
 
-         **Figure 7:** OpenSAS Dashboard displaying CBSD location on the map.
-
-   Once PAL operation is terminated, the GAA user will be granted access to the spectrum and the corresponding coverage area will be shown on the map.
+         **Figure 12:** OpenSAS Dashboard displaying GAA CBSD location on the map.
 
 
