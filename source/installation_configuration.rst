@@ -281,7 +281,7 @@ Modify run.py to add you gnb yml file name
    :alt: CBSD List
    :scale: 40%
 
-   **Figure:** .
+   **Figure:** run.py snippet.
 
 
 4. Modify CBSD.py
@@ -294,5 +294,5 @@ Modify CBSD.py to inculde OpenSAS IP and proper CBSD client certificate path:
    :alt: CBSD List
    :scale: 40%
 
-   **Figure:** .
+   **Figure:** cbsd.py snippet.
 
