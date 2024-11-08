@@ -254,7 +254,7 @@ Run the OpenSAS Container
 CBSD Client for OpenSAS
 """""""""""""""""""""""
 
-CBSD consists of a CBSD client and a 4G/5G gNB. The CBSD client is responsible for communicating with the OpenSAS server to register, request spectrum, and perform other actions. Once CBSD client receives the grant from the SAS, it communicates with the gNB to start transmitting on the assigned frequency. Open-source 4G/5G stacks can be used for end-to-end deployment in the CBRS ecosystem. For 4G/5G gnB installation, refer to the srsRAN/OAI documentation. We use `tmux` terminal to trigger gnB operation, once the grant is received from the SAS.
+CBSD consists of a CBSD client and a 4G/5G gNB. The CBSD client is responsible for communicating with the OpenSAS server to register, request spectrum, and perform other actions. Once CBSD client receives the grant from the SAS, it communicates with the gNB to start transmitting on the assigned frequency. Open-source 4G/5G stacks can be used for end-to-end deployment in the CBRS ecosystem, however it is not mandatory to have over-the-air 4G/5G setup. ZMQ or simulated-RF can also be used. For 4G/5G gnB installation, refer to the srsRAN/OAI documentation. We use `tmux` terminal to trigger gnB operation, once the grant is received from the SAS.
 
 
 1. Clone the Repository
