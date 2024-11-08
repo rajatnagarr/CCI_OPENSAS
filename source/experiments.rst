@@ -290,6 +290,15 @@ Setting Up the Experiment
 
       **Figure:** OpenSAS Dashboard Login Page.
 
+   The OpenSAS dashboard presents CBSD and spectrum views of the registered CBSDs, also a map showing the location and transmission radius of the CBSDs.
+
+   .. figure:: _static/image9.png
+      :align: center
+      :alt: CBSD List
+      :scale: 40%
+
+      **Figure:** OpenSAS Dashboard views.
+
 .. _running-cbsd-client:
 
 3. **Running the CBSD Client**
@@ -591,16 +600,6 @@ Then, start the dashboard:
 
    npm run dev
 
-
-
-- You can view the list of CBSDs here.
-
-.. figure:: _static/image9.png
-   :align: center
-   :alt: CBSD List
-   :scale: 40%
-
-   **Figure:** CBSD List on Dashboard.
 
 Build from Docker Image of OpenSAS and OpenSAS Dashboard
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
