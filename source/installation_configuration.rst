@@ -249,3 +249,15 @@ Run the OpenSAS Container
   - `https://localhost:1443/sas-api/heartbeat`
   - `https://localhost:1443/sas-api/relinquishment`
   - `https://localhost:1443/sas-api/deregistration`
+
+
+CBSD Client for OpenSAS
+"""""""""""""""""""""""
+
+Clone the Docker Repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   git clone https://github.com/CCI-NextG-Testbed/CBSD
+   cd 
