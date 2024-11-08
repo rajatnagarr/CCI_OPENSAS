@@ -324,356 +324,107 @@ Setting Up the Experiment
       - The corresponding logs will appear in the OpenSAS dashboard and OpenSAS console.
       - After a successful grant, another terminal will open, starting the srsRAN 5G gNB.
       - You can now view this CBSD information in the CBSD list, Spectrum list, and map in the OpenSAS dashboard.
+   
+   c. **Output for GAA Operation**
 
+      - **OpenSAS server logs indicating the CBSD registration:**
 
+      .. figure:: _static/image15.png
+         :align: center
+         :alt: OpenSAS Log
+         :scale: 50%
+
+         **Figure 5:** OpenSAS log indicating the CBSD registration.
+
+      - **CBSD console logs showing registration and spectrum inquiries:**
+
+      .. figure:: _static/image16.png
+         :align: center
+         :alt: CBSD Console Logs
+         :scale: 50%
+
+         **Figure 6:** CBSD console logs indicating registration and spectrum inquiries.
+
+      - **OpenSAS Dashboard displaying CBSD location on the map:**
+
+      .. figure:: _static/image17.png
+         :align: center
+         :alt: OpenSAS Dashboard Map
+         :scale: 50%
+
+         **Figure 7:** OpenSAS Dashboard displaying CBSD location on the map.
+
+      - **Authorized band for the CBSD after grant response:**
+
+      .. figure:: _static/image18.png
+         :align: center
+         :alt: Authorized Band
+         :scale: 50%
+
+         **Figure 8:** Authorized band for the CBSD after grant response.
+
+      - **Registered CBSD and its corresponding ID:**
+
+      .. figure:: _static/image19.png
+         :align: center
+         :alt: Registered CBSD
+         :scale: 50%
+
+         **Figure 9:** Registered CBSD and its corresponding ID.
 
 
 
 4. **Running the PAL CBSD Client**
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Terminate the `run.py` program in the CBSD console and execute the PAL user CBSD client using:
+   Now, start the PAL CBSD client on a different VM:
 
-   .. code-block:: bash
+   a. **Open a New TMUX Session**
 
-      python3 run.py --lat 38.8818743855486 --lon -77.11132435717902 --fcc CCI-CBRS-PAL --low 3610e6 --high 3620e6 -eirp 20 -react 0
+      This allows you to manage multiple terminal sessions.
 
-   - The experiment results can be found in :ref:`Output for PAL Operation <pal-operation>`.
+      .. code-block:: bash
 
-.. _gaa-operation:
+         cd CBSD/
+         tmux
 
-5. **Output for GAA Operation**
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   b. **Start the PAL CBSD Client**
 
-   - **OpenSAS log indicating the CBSD registration:**
+      In the `tmux` terminal, run the following command:
 
-     .. figure:: _static/image15.png
-        :align: center
-        :alt: OpenSAS Log
-        :scale: 50%
+      .. code-block:: bash
 
-        **Figure 5:** OpenSAS log indicating the CBSD registration.
+         python3 run.py --lat 38.8818743855486 --lon -77.11132435717902 --fcc CCI-CBRS-PAL --low 3610e6 --high 3620e6 -eirp 20 -react 0
 
-   - **CBSD console logs showing registration and spectrum inquiries:**
+      - After running this, you should see a similar registration request from the CBSD client sent to OpenSAS, a spectrum inquiry, and then OpenSAS grants.
+      - The corresponding logs will appear in the OpenSAS dashboard and OpenSAS console.
+      - After a successful grant, another terminal will open, starting the srsRAN 5G gNB.
+      - You can now view this CBSD information in the CBSD list, Spectrum list, and map in the OpenSAS dashboard.
+   
+   c. **Output for PAL Operation**
 
-     .. figure:: _static/image16.png
-        :align: center
-        :alt: CBSD Console Logs
-        :scale: 50%
+      Since the PAL user has priority over the GAA user, the PAL user will be granted access to the spectrum first. The GAA user will be granted access only after the PAL user relinquishes the spectrum. In the meantime, the GAA user is in registered state and keep sending spectrum Inquiry to the SAS.
 
-        **Figure 6:** CBSD console logs indicating registration and spectrum inquiries.
+      - **OpenSAS Dashboard displaying CBSD location on the map:**
 
-   - **OpenSAS Dashboard displaying CBSD location on the map:**
+      Since PAL user is granted same frequency as GAA user, the GAA user stops transmission and corresponding coverage area is removed from the map and the PAL user's coverage area is shown.
 
-     .. figure:: _static/image17.png
-        :align: center
-        :alt: OpenSAS Dashboard Map
-        :scale: 50%
+      .. figure:: _static/image23.png
+         :align: center
+         :alt: OpenSAS Dashboard Map
+         :scale: 50%
 
-        **Figure 7:** OpenSAS Dashboard displaying CBSD location on the map.
+         **Figure 10:** OpenSAS Dashboard displaying CBSD location on the map.
 
-   - **Authorized band for the CBSD after grant response:**
+      - **Registered PAL CBSD user on the dashboard:**
 
-     .. figure:: _static/image18.png
-        :align: center
-        :alt: Authorized Band
-        :scale: 50%
+      .. figure:: _static/image21.png
+         :align: center
+         :alt: Registered PAL CBSD
+         :scale: 50%
 
-        **Figure 8:** Authorized band for the CBSD after grant response.
+         **Figure 11:** Registered PAL CBSD user on the dashboard.
 
-   - **Registered CBSD and its corresponding ID:**
-
-     .. figure:: _static/image19.png
-        :align: center
-        :alt: Registered CBSD
-        :scale: 50%
-
-        **Figure 9:** Registered CBSD and its corresponding ID.
-
-.. _pal-operation:
-
-6. **Output for PAL Operation**
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-   - **OpenSAS Dashboard displaying CBSD location on the map:**
-
-     .. figure:: _static/image23.png
-        :align: center
-        :alt: OpenSAS Dashboard Map
-        :scale: 50%
-
-        **Figure 10:** OpenSAS Dashboard displaying CBSD location on the map.
-
-   - **Spectrum allocation for the PAL user:**
-
-     .. figure:: _static/image20.png
-        :align: center
-        :alt: Spectrum Allocation
-        :scale: 50%
-
-        **Figure 11:** Spectrum allocation for the PAL user.
-
-   - **Registered PAL CBSD user on the dashboard:**
-
-     .. figure:: _static/image21.png
-        :align: center
-        :alt: Registered PAL CBSD
-        :scale: 50%
-
-        **Figure 12:** Registered PAL CBSD user on the dashboard.
-
-   - **Registration of CBSD PAL user on the OpenSAS core console:**
-
-     .. figure:: _static/image22.png
-        :align: center
-        :alt: OpenSAS Core Console
-        :scale: 50%
-
-        **Figure 13:** Registration of CBSD PAL user on the OpenSAS core console.
-
-Requirements
-^^^^^^^^^^^^
-
-To complete this tutorial, you will need:
-
-1. **PC with Ubuntu 22.04.1 LTS**
-2. **srsRAN Project**: Open-source 5G software radio suite.
-3. **OpenSAS Core**: The core server component of OpenSAS.
-4. **OpenSAS Dashboard**: The GUI dashboard for OpenSAS.
-5. **ZeroMQ**: A high-performance asynchronous messaging library.
-6. **CBSD**: Citizens Broadband Radio Service Device.
-
-Installation and Configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Building OpenSAS from Source
-""""""""""""""""""""""""""""
-
-Clone the Repository
-~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   git clone https://github.com/CCI-NextG-Testbed/OpenSAS
-
-- This is the forked version for the Virginia Tech SAS, called OpenSAS. The role of the SAS is to allow spectrum management of CBSDs, activation of dynamic protection zones, and environmental sensing for incumbent protection. OpenSAS strives to adhere to WInnForum and FCC regulations on SAS and CBRS operations.
-- The `Core/` folder contains everything required to launch the SAS Core Server. This is the true SAS. Regardless of your institution, this contains the code that is of primary interest for SAS researchers.
-
-.. figure:: _static/image0.png
-   :align: center
-   :alt: SAS-CBSD State Diagram
-   :scale: 50%
-
-   **Figure:** SAS-CBSD State Diagram.
-
-Generate Certificates
-~~~~~~~~~~~~~~~~~~~~~
-
-Then, create the CA and server/client certificates using the `create_ssl_certs.sh` script.
-
-Navigate to the `Certs` directory and run the script:
-
-.. code-block:: bash
-
-   cd OpenSAS/Core/Certs
-   sudo chmod +x create_ssl_certs.sh
-   ./create_ssl_certs.sh
-
-- Enter the IP of the machine running OpenSAS if making CBSD requests externally. If making the requests locally, the IP/hostname can be `127.0.0.1`.
-- Before running the script, make sure to delete the existing `ca.cert` and all other `.key`, `.crt`, and `.csr` files. The only files remaining should be `create_ssl_certs.sh` and `create_client_certs.sh`. The `create_client_certs.sh` can be used to create client certs for each new client. Once existing certs are deleted, run the script.
-- This will create the CA, server, and client certificates in the `Certs` folder. Copy the `ca.cert`, `client-<IP/hostname>-0.cert`, and `client-<IP/hostname>-0.key` files to the client machine (CBSD) to make HTTPS requests.
-
-.. figure:: _static/image1.png
-   :align: center
-   :alt: Certificate Generation
-   :scale: 50%
-
-   **Figure:** Certificate Generation.
-
-Update Server Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Update the paths to the server certificate and key in `Core/server.py`.
-
-.. figure:: _static/image2.png
-   :align: center
-   :alt: Server Configuration
-   :scale: 60%
-
-   **Figure:** Updating Server Configuration in `server.py`.
-
-Install Requirements
-~~~~~~~~~~~~~~~~~~~~
-
-Install the necessary Python packages:
-
-.. code-block:: bash
-
-   pip3 install -r requirements.txt
-
-- This will install all the required packages such as `requests`, `python-engine.io`. For the communication between the frontend and core to work, the `python-socketio` and `vue-socket.io` versions should be compatible. The versions specified in the `requirements.txt` are tested to be compatible.
-
-.. figure:: _static/image3.png
-   :align: center
-   :alt: Installing Requirements
-   :scale: 50%
-
-   **Figure:** Installing Requirements.
-
-Run the OpenSAS Server
-~~~~~~~~~~~~~~~~~~~~~~
-
-Start the OpenSAS server:
-
-.. code-block:: bash
-
-   cd ../
-   python3 server.py
-
-
-
-The OpenSAS server will start listening for HTTPS requests from CBSDs.
-
-**CBSDs can access the SAS via the following URL endpoints:**
-
-.. code-block:: none
-
-   https://<IP/hostname>:1443/sas-api/<request>
-
-**Examples:**
-
-- `https://127.0.0.1:1443/sas-api/registration`
-- `https://192.168.0.110:1443/sas-api/registration`
-- `https://localhost:1443/sas-api/spectrumInquiry`
-- `https://localhost:1443/sas-api/grant`
-- `https://localhost:1443/sas-api/heartbeat`
-- `https://localhost:1443/sas-api/relinquishment`
-- `https://localhost:1443/sas-api/deregistration`
-
-These endpoints allow CBSDs to perform various actions such as registration, spectrum inquiry, grant requests, heartbeats, relinquishment, and deregistration with the OpenSAS server.
-
-Building OpenSAS Dashboard from Source
-""""""""""""""""""""""""""""""""""""""
-
-Clone the Repository
-~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   git clone https://github.com/CCI-NextG-Testbed/OpenSAS-dashboard/
-
-Install npm
-~~~~~~~~~~~
-
-Install npm if it's not already installed:
-
-.. code-block:: bash
-
-   sudo apt-get install npm
-
-Install Dependencies
-~~~~~~~~~~~~~~~~~~~~
-
-From the cloned directory, install dependencies:
-
-.. code-block:: bash
-
-   cd OpenSAS-dashboard
-   npm install --legacy-peer-deps
-
-Configure and Run the Dashboard
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- Set the IP and port to the OpenSAS SocketIO in the configuration files.
-- If the OpenSAS core is running on a different VM or machine, use its IP; else it will be `localhost`.
-- The port on OpenSAS is set to `8000`.
-
-In your configuration file (e.g., `main.js`), update the connection settings:
-
-.. code-block:: javascript
-
-   Vue.use(new VueSocketIO({
-      debug: true,
-      connection: 'http://10.147.20.114:8000',
-      options: { transports: ['websocket', 'polling', 'flashsocket'] } // Optional options
-   }))
-
-Then, start the dashboard:
-
-.. code-block:: bash
-
-   npm run dev
-
-
-Build from Docker Image of OpenSAS and OpenSAS Dashboard
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Alternatively, you can build and run OpenSAS using Docker. The Dockerfile provides an easy way to get started.
-
-Install Docker Engine
-~~~~~~~~~~~~~~~~~~~~~
-
-Update your package lists and install Docker:
-
-.. code-block:: bash
-
-   sudo apt update
-   sudo apt install docker.io
-
-Clone the Docker Repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   git clone https://github.com/CCI-NextG-Testbed/OpenSASDocker.git
-   cd OpenSASDocker
-
-Build the Docker Image
-~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   sudo docker build . --tag=opensas-server-dash --no-cache
-
-Run the OpenSAS Container
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   docker run --network=host --name=opensas-container -it --privileged opensas-server-dash
-
-- The OpenSAS core and dashboard services will start automatically.
-- This starts the two services:
-
-  - **The OpenSAS core**, which will listen to HTTPS requests from CBSDs.
-  - **The OpenSAS dashboard webserver**.
-
-- The web portal can be accessed via `http://localhost:9528/`.
-- The CBSDs can access the SAS via the following URL endpoints:
-
-  - `https://localhost:1443/sas-api/registration`
-  - `https://localhost:1443/sas-api/spectrumInquiry`
-  - `https://localhost:1443/sas-api/grant`
-  - `https://localhost:1443/sas-api/heartbeat`
-  - `https://localhost:1443/sas-api/relinquishment`
-  - `https://localhost:1443/sas-api/deregistration`
-
-
-[Content for Installation and Configuration]
-
-Running the Experiments
-^^^^^^^^^^^^^^^^^^^^^^^
-
-[Content for Running the Experiments]
-
-Outcome/Results
-^^^^^^^^^^^^^^^
-
-[Content for Outcome/Results]
-
-Conclusion
-^^^^^^^^^^
-
-[Content for Conclusion]
+   Once PAL operation is terminated, the GAA user will be granted access to the spectrum and the corresponding coverage area will be shown on the map.
 
 
