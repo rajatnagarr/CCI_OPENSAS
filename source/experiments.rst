@@ -425,6 +425,13 @@ Setting Up the Experiment
 
          **Figure 11:** Registered PAL CBSD user on the dashboard.
 
+      .. figure:: _static/image17.png
+         :align: center
+         :alt: OpenSAS Dashboard Map
+         :scale: 50%
+
+         **Figure 7:** OpenSAS Dashboard displaying CBSD location on the map.
+
    Once PAL operation is terminated, the GAA user will be granted access to the spectrum and the corresponding coverage area will be shown on the map.
 
 
