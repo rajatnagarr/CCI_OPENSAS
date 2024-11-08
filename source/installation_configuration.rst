@@ -266,7 +266,7 @@ CBSD consists of a CBSD client and a 4G/5G gNB. The CBSD client is responsible f
    cd CBSD
 
 
-2. Copy the Certificates
+2. Install TMUX and Copy the Certificates
 ~~~~~~~~~~~~~~~~~~~~
 
 Make sure that the client Certs are generated in OpenSAS server with client's machine IP (accesscible from other VMs) and placed in the Certs folder here. Also, the proper gnb yml file is copied from your srsRAN/configs folder. modify the run.py script to include any specific srsRAN config file. Make appropriate changes in the run.py and CBSD.py.
