@@ -301,18 +301,20 @@ Setting Up the Experiment
 
 .. _running-cbsd-client:
 
-3. **Running the CBSD Client**
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-   On the VM hosting the CBSD client (with Open5GS core, srsRAN gNB, and RF frontend connected), run the GAA CBSD first:
+3. On the VM hosting GAA CBSD client (with Open5GS core, srsRAN gNB, and RF frontend connected), run the GAA first: 
 
    a. **Open a New TMUX Session**
 
       This allows you to manage multiple terminal sessions.
 
+      .. code-block:: bash
+
+         cd CBSD/
+         tmux
+
    b. **Start the GAA CBSD Client**
 
-      Run the following command:
+      In the `tmux` terminal, run the following command:
 
       .. code-block:: bash
 
@@ -323,7 +325,9 @@ Setting Up the Experiment
       - After a successful grant, another terminal will open, starting the srsRAN 5G gNB.
       - You can now view this CBSD information in the CBSD list, Spectrum list, and map in the OpenSAS dashboard.
 
-      - The experiment results can be found in :ref:`Output for GAA Operation <gaa-operation>`.
+
+
+
 
 4. **Running the PAL CBSD Client**
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
