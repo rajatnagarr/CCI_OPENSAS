@@ -254,7 +254,9 @@ Run the OpenSAS Container
 CBSD Client for OpenSAS
 """""""""""""""""""""""
 
-Clone the Repository
+CBSD consists of a CBSD client and a 4G/5G gNB. The CBSD client is responsible for communicating with the OpenSAS server to register, request spectrum, and perform other actions. Once CBSD client receives the grant from the SAS, it communicates with the gNB to start transmitting on the assigned frequency. Open-source 4G/5G stacks can be used for end-to-end deployment in the CBRS ecosystem. 
+
+1. Clone the Repository
 ~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
@@ -263,12 +265,12 @@ Clone the Repository
    cd CBSD
 
 
-First
+2. Copy the Certificates
 ~~~~~~~~~~~~~~~~~~~~
 
-Make sure that the Certs are generated in OpenSAS with this machine's IP (accesscible from other VMs) and placed in the Certs folder here. Also, the proper gnb yml file is copied from your srsRAN/configs folder. modify the run.py script to include any specific srsRAN config file. Make appropriate changes in the run.py and CBSD.py.
+Make sure that the client Certs are generated in OpenSAS server with client's machine IP (accesscible from other VMs) and placed in the Certs folder here. Also, the proper gnb yml file is copied from your srsRAN/configs folder. modify the run.py script to include any specific srsRAN config file. Make appropriate changes in the run.py and CBSD.py.
 
-Second
+3. 
 ~~~~~~~~~~~~~~~~~~~~
 
 Modify run.py to add you gnb yml file name
