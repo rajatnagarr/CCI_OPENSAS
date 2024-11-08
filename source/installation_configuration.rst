@@ -254,7 +254,7 @@ Run the OpenSAS Container
 CBSD Client for OpenSAS
 """""""""""""""""""""""
 
-Clone the Docker Repository
+Clone the Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
